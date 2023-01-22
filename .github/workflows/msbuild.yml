@@ -74,8 +74,12 @@ jobs:
       run: dir
       
     - name: Upload Release Asset
-      uses: d1ceward/draft-assets-release-action@v2
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        files: |
-          D:\a\CrackME-C-PlusPlus\CrackME-C-PlusPlus\CrackME.zip
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+        asset_path: D:\a\CrackME-C-PlusPlus\CrackME-C-PlusPlus\CrackME.zip
+        asset_name: CrackME.zip
+        asset_content_type: application/zip
+          
