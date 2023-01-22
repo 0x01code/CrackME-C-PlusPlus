@@ -62,13 +62,14 @@ jobs:
 
     - name: Create Release
       id: create_release
-      uses: CupOfTea696/gh-action-auto-release@v1.0.0
-      with:
-        title: v${{  github.ref_name }}
-        tag: v${{  github.ref_name }}
-        draft: false
+      uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{  github.ref_name }}
+        release_name: v${{  github.ref_name }}
+        draft: false
+        prerelease: false
 
     - name: Test dir
       run: dir
