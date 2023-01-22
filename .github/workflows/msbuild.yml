@@ -6,9 +6,6 @@ on:
       - "[0-9]+.[0-9]+.[0-9]+"
 
 env:
-  # Path to the solution file relative to the root of the project.
-  SOLUTION_FILE_PATH: "CrackME C++.sln"
-
   # Configuration type to build.
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
@@ -35,7 +32,7 @@ jobs:
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=x86 ${{env.SOLUTION_FILE_PATH}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} /p:Platform=x86 "CrackME C++.sln"
       
     - name: Create output directory
       run: New-Item -ItemType Directory -Path C:\builtfiles\CrackME -Force > $null
