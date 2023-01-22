@@ -78,4 +78,4 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         files: |
-          C:\builtfiles\CrackME\CrackME.zip
+          D:\a\CrackME-C-PlusPlus\CrackME-C-PlusPlus\CrackME.zip
