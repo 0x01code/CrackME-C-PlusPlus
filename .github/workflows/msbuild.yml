@@ -23,8 +23,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.PAT }}
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.1.3
