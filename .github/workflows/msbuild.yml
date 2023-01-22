@@ -70,9 +70,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Test dir
+      run: dir
+      
     - name: Upload Release Asset
       uses: d1ceward/draft-assets-release-action@v2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         files: |
-          ./CrackME.zip
+          C:\builtfiles\CrackME\CrackME.zip
